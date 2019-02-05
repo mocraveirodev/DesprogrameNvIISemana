@@ -1,12 +1,15 @@
+//Arquivo para tratativa de tudo relacionado à tabela
+
 document.querySelector("#titulo").textContent = "Xuxu"; //Alterando o título da pagina
 
 // let paciente = document.querySelector("#primeiro-paciente");     Usamos apenas quando fizemos teste com apenas o primeiro paciente
 
 const pacientes = document.querySelectorAll(".paciente"); //Selecionando todos os pacientes da tabela e ccolocando em um Array
 
+//Função criada para reproveitamento do codigo com a logica para o calculo do IMC.
 calculaImc = (peso, altura) => {
-    let imc = peso / (altura * altura);
-    return imc.toFixed(2);
+    let imc = peso / (altura * altura); //Calcula o IMC
+    return imc.toFixed(2); //Retorna o valor do IMC arredondando o resultado para 2 casas decimentos
 }
 
 for (let i = 0; i < pacientes.length; i++) { //Iteração na tabela
@@ -40,10 +43,8 @@ for (let i = 0; i < pacientes.length; i++) { //Iteração na tabela
 
     if (alturaEhValida && pesoEhValido) { //Caso a altura e peso informados forem válidos, será feito o calculo do IMC
 
-        //let imc = peso / (altura * altura); Calculando o IMC e armazenando
+        //let imc = peso / (altura * altura); COmentado pois estamos realizando o calculo através da função calculaImc().
         imcTd.textContent = calculaImc(peso, altura); //Alterando o texto informando o IMC e fixando seu valor com no máximo 2 casas decimais.
     }
 
 }
-
-// let botao = document.querySelector("#adicionar-paciente");
